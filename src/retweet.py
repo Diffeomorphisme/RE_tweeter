@@ -1,5 +1,4 @@
 from requests_oauthlib import OAuth1Session
-import json
 import config
 
 
@@ -35,8 +34,9 @@ def retweet(tweet_id: str, genuine_tweet: bool):
             "Request returned an error: {} {}".format(response.status_code, response.text)
         )
 
-    print("Response code: {}".format(response.status_code))
+    # print("Response code: {}".format(response.status_code))
 
+    # import json
     # Saving the response as JSON
-    json_response = response.json()
-    print(json.dumps(json_response, indent=4, sort_keys=True))
+    # json_response = response.json()
+    # print(json.dumps(json_response, indent=4, sort_keys=True))

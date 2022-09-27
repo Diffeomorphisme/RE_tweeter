@@ -53,7 +53,7 @@ def fetch_most_recent_tweet_id(target_user_id: str):
     url = create_url(target_user_id)
     params = get_params()
     json_response = connect_to_endpoint(url, params)
-    print(json.dumps(json_response, indent=4, sort_keys=True))
+    # print(json.dumps(json_response, indent=4, sort_keys=True))
 
     for tweet in json_response["data"]:
         if tweet["possibly_sensitive"] == False:
@@ -62,6 +62,26 @@ def fetch_most_recent_tweet_id(target_user_id: str):
                 return [tweet["id"], True]
             else:
                 print(tweet["id"])
+                return [tweet["id"], False]
+
+
+def fetch_most_recent_tweets(target_user_id: str):
+    """Fetches the most recent tweets for the target_user_id.
+    Filters out sensitive content.
+    Returns:
+        a list of the most recent tweet and  a boolean marking original tweet (True) or a retweet (False)
+    """
+
+    url = create_url(target_user_id)
+    params = get_params()
+    json_response = connect_to_endpoint(url, params)
+    # print(json.dumps(json_response, indent=4, sort_keys=True))
+
+    for tweet in json_response["data"]:
+        if tweet["possibly_sensitive"] == False:
+            if "RT " not in tweet["text"]:
+                return [tweet["id"], True]
+            else:
                 return [tweet["id"], False]
 
 
