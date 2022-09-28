@@ -11,9 +11,9 @@ def retweet(tweet_id: str, genuine_tweet: bool):
     id = config.user_id
 
     if genuine_tweet:
-        payload = {"text": "OMG this is a tweet: ", "quote_tweet_id": tweet_id}
+        payload = {"text": "MrAntoineDaniel a just tweeté this: ", "quote_tweet_id": tweet_id}
     else:
-        payload = {"text": "OMG this has been retweeted: ", "quote_tweet_id": tweet_id}
+        payload = {"text": "MrAntoineDaniel a just retweeté this: ", "quote_tweet_id": tweet_id}
 
     # Make the request
     oauth = OAuth1Session(

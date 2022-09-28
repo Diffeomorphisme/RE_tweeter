@@ -38,7 +38,6 @@ def connect_to_endpoint(url, headers, params):
 
 
 def main(tweet_id, user_id=config.user_id, next_token=None):
-	"""Returns True if the """
 	bearer_token = auth()
 	url = create_url(tweet_id)
 	headers = create_headers(bearer_token)
@@ -47,7 +46,7 @@ def main(tweet_id, user_id=config.user_id, next_token=None):
 	for tweet in json_response["data"]:
 		if tweet["author_id"] == user_id:
 			return True
-	if json_response["meta"]["next_token"]:
+	if "next_token" in json_response["meta"].keys():
 		next_token = json_response["meta"]["next_token"]
 	main(tweet_id=tweet_id,user_id=user_id, next_token=next_token)
 	return False
