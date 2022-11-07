@@ -8,8 +8,6 @@ def retweet(tweet_id: str, genuine_tweet: bool):
     access_token = config.access_token
     access_token_secret = config.access_token_secret
 
-    id = config.user_id
-
     if genuine_tweet:
         payload = {"text": "MrAntoineDaniel a just tweeté this: ", "quote_tweet_id": tweet_id}
     else:

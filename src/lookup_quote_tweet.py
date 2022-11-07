@@ -8,7 +8,6 @@ def auth():
 
 def create_url(tweet_id):
 	# Replace with Tweet ID below
-
 	return "https://api.twitter.com/2/tweets/{}/quote_tweets".format(tweet_id)
 
 

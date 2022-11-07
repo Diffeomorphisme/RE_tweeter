@@ -60,7 +60,7 @@ def fetch_most_recent_tweet_id(target_user_id: str):
     # print(json.dumps(json_response, indent=4, sort_keys=True))
 
     for tweet in json_response["data"]:
-        if tweet["possibly_sensitive"] == False:
+        if not tweet["possibly_sensitive"]:
             if "RT " not in tweet["text"]:
                 print(tweet["id"])
                 return [tweet["id"], True]
@@ -91,6 +91,7 @@ def fetch_all_tweets(target_user_id: str, next_token=None, response=[]):
 
     return response
 
+
 if __name__ == "__main__":
     fetch_most_recent_tweet_id(542819818)
-    fetch_all_tweets(542819818)
+    # fetch_all_tweets(542819818)

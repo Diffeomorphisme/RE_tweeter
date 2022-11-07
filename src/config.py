@@ -5,9 +5,6 @@ if not os.getenv("RUNNING_CONTAINER"):
     print("Running on local environment.")
     load_dotenv()
 
-# Be sure to replace your-user-id with your own user ID or one of an authenticating user
-# You can find a user ID by using the user lookup endpoint
-
 target_user_id = 542819818
 initial_tweet_id = "000000"
 
